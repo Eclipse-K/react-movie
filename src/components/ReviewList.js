@@ -3,7 +3,11 @@ function formatData(value) {
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
-function ReviewListItem({ item }) {
+function ReviewListItem({ item, onDelete }) {
+  const handleDeleteClick = () => {
+    onDelete(item.id);
+  };
+
   return (
     <div>
       <img src={item.imgUrl} alt={item.title} />
@@ -16,13 +20,13 @@ function ReviewListItem({ item }) {
     </div>
   );
 }
-function ReviewList({ item }) {
+function ReviewList({ item, onDelete }) {
   return (
     <ul>
       {item.map((item) => {
         return (
           <li>
-            <ReviewListItem item={item} />
+            <ReviewListItem item={item} onDelete={onDelete} />
           </li>
         );
       })}
