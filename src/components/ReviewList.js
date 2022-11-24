@@ -16,6 +16,7 @@ function ReviewListItem({ item, onDelete }) {
         <p>{item.rating}</p>
         <p>{item.formatData(item.createdAt)}</p>
         <p>{item.content}</p>
+        <button onClick={handleDeleteClick}>삭제</button>
       </div>
     </div>
   );
@@ -24,8 +25,9 @@ function ReviewList({ item, onDelete }) {
   return (
     <ul>
       {item.map((item) => {
+        //배열을 렌더링 할 때 key를 꼭 기억하기.
         return (
-          <li>
+          <li key={item.id}>
             <ReviewListItem item={item} onDelete={onDelete} />
           </li>
         );
