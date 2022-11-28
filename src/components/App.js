@@ -4,26 +4,26 @@ import ReviewList from "./ReviewList";
 
 function App() {
   const [order, setOrder] = useState("createdAt");
-  const [items, setItems] = useState();
+  const [items, setItems] = useState([]);
   const sortedItems = items.sort((a, b) => b[order] - a[order]);
 
   const handleNewestClick = () => setOrder("createdAt");
 
   const handleBestClick = () => setOrder("rating");
 
-  const handleDeleteClick = () => {
+  const handleDelete = (id) => {
     const nextItems = items.filter((item) => item.id !== id);
     setItems(nextItems);
   };
 
-  const handleLoad = async () => {
-    const { reviews } = await getReviews();
+  const handleLoad = async (orderQuery) => {
+    const { reviews } = await getReviews(orderQuery);
     setItems(reviews);
   };
 
   useEffect(() => {
-    handleLoad();
-  }, []);
+    handleLoad(order);
+  }, [order]);
 
   return (
     <div>
@@ -31,7 +31,7 @@ function App() {
         <button onClick={handleNewestClick}>최신순</button>
         <button onClick={handleBestClick}>베스트순</button>
       </div>
-      <ReviewList item={sortedItems} onDelete={handleDeleteClick} />
+      <ReviewList item={sortedItems} onDelete={handleDelete} />
     </div>
   );
 }
