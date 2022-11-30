@@ -14,7 +14,7 @@ function ReviewListItem({ item, onDelete }) {
       <div>
         <h1>{item.title}</h1>
         <p>{item.rating}</p>
-        <p>{item.formatData(item.createdAt)}</p>
+        <p>{formatData(item.createdAt)}</p>
         <p>{item.content}</p>
         <button onClick={handleDeleteClick}>삭제</button>
       </div>
