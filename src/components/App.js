@@ -46,9 +46,7 @@ function App() {
         <button onClick={handleBestClick}>베스트순</button>
       </div>
       <ReviewList item={sortedItems} onDelete={handleDelete} />
-      <button disabled={!hasNext} onClick={handleLoadMore}>
-        더 보기
-      </button>
+      {hasNext && <button onClick={handleLoadMore}>더 보기</button>}
     </div>
   );
 }
