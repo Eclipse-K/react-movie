@@ -25,7 +25,7 @@ function App() {
     if (options.offset === 0) {
       setItems(reviews);
     } else {
-      setItems([...items, ...reviews]);
+      setItems((prevItems) => [...prevItems, ...reviews]); //setItems의 콜백형태로 만들어줌.(비동기 state 주의점)
     }
     setOffset(options.offset + options.limit);
     setHasNext(paging.hasNext);
