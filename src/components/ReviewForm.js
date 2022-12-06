@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./ReviewForm.css";
 
 function ReviewForm() {
   const [title, setTitle] = useState("");
@@ -19,7 +20,7 @@ function ReviewForm() {
   };
 
   return (
-    <form>
+    <form className="ReviewForm">
       <input value={title} onChange={handleTitleChange} />
       <input type="number" value={rating} onChange={handleRatingChange} />
       <textarea value={content} onChange={handleContentChange} />
