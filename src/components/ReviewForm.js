@@ -3,7 +3,7 @@ import FileInput from "./FileInput";
 import "./ReviewForm.css";
 
 function ReviewForm() {
-  const [value, setValue] = useState({
+  const [values, setValues] = useState({
     title: "",
     rating: 0,
     content: "",
@@ -24,7 +24,7 @@ function ReviewForm() {
   }; */
 
   const handleChange = (name, value) => {
-    setValue((prevValues) => ({
+    setValues((prevValues) => ({
       ...prevValues,
       [name]: value,
     }));
@@ -47,9 +47,18 @@ function ReviewForm() {
         value={values.imgFile}
         onChange={handleChange}
       />
-      <input value={title} onChange={handleInputChange} />
-      <input type="number" value={rating} onChange={handleInputChange} />
-      <textarea value={content} onChange={handleInputChange} />
+      <input name="title" value={values.title} onChange={handleInputChange} />
+      <input
+        type="number"
+        name="rating"
+        value={values.rating}
+        onChange={handleInputChange}
+      />
+      <textarea
+        name="content"
+        value={values.content}
+        onChange={handleInputChange}
+      />
       <button type="submit">확인</button>
     </form>
   );
