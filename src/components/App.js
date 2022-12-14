@@ -29,7 +29,7 @@ function App() {
       setLoadingError(null);
       setIsLoading(true);
       result = await getReviews(options);
-    } catch {
+    } catch (error) {
       setLoadingError(error);
       return;
     } finally {
