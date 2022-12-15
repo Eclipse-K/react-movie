@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function FileInput({ name, value, onChange }) {
   const [preview, setPreview] = useState();
@@ -16,6 +16,13 @@ function FileInput({ name, value, onChange }) {
     inputNode.value = "";
     onChange(name, null);
   };
+
+  useEffect(() => {
+    if (!value) return;
+
+    const nextPreview = URL.createObjectURL(value);
+    setPreview(nextPreview);
+  }, [value]);
 
   return (
     <div>
