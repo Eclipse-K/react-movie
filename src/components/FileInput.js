@@ -1,6 +1,7 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 function FileInput({ name, value, onChange }) {
+  const [preview, setPreview] = useState();
   const inputRef = useRef();
 
   const handleChange = (e) => {
@@ -18,8 +19,14 @@ function FileInput({ name, value, onChange }) {
 
   return (
     <div>
-      <input type="file" onChange={handleChange} ref={inputRef} />;
-      {value && <button onClick={handleClearClick}>X</button>}
+      <img src={preview} alt="이미지 미리보기" />
+      <input
+        type="file"
+        accept="image/png, image/jpeg"
+        onChange={handleChange}
+        ref={inputRef}
+      />
+      ;{value && <button onClick={handleClearClick}>X</button>}
     </div>
   );
 } //FileInput은 반드시 비제어 컴포넌트로
