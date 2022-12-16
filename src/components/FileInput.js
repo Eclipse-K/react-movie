@@ -19,9 +19,13 @@ function FileInput({ name, value, onChange }) {
 
   useEffect(() => {
     if (!value) return;
-
     const nextPreview = URL.createObjectURL(value);
     setPreview(nextPreview);
+
+    return () => {
+      setPreview();
+      URL.revokeObjectURL(nextPreview);
+    };
   }, [value]);
 
   return (
