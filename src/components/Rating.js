@@ -8,11 +8,9 @@ function Star({ selected = false }) {
 function Rating({ value = 0 }) {
   return (
     <div>
-      <Rating selected={value >= 1} />
-      <Rating selected={value >= 2} />
-      <Rating selected={value >= 3} />
-      <Rating selected={value >= 4} />
-      <Rating selected={value >= 5} />
+      {RATINGS.map((rating) => (
+        <Star key={rating} selected={value >= rating} />
+      ))}
     </div>
   );
 }
