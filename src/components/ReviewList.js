@@ -1,4 +1,5 @@
 import Rating from "./Rating";
+import "./ReviewList.css";
 
 function formatData(value) {
   const date = new Date(value);
@@ -11,8 +12,8 @@ function ReviewListItem({ item, onDelete }) {
   };
 
   return (
-    <div>
-      <img src={item.imgUrl} alt={item.title} />
+    <div className="ReviewListItem">
+      <img className="ReviewListItem-img" src={item.imgUrl} alt={item.title} />
       <div>
         <h1>{item.title}</h1>
         <Rating value={item.rating} />
