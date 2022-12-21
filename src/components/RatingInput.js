@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Rating from "./Rating";
+import "./RatingInput.css";
 
 function RatingInput({ name, value, onChange }) {
   const [rating, setRating] = useState(value);
