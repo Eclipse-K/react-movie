@@ -13,6 +13,10 @@ function ReviewListItem({ item, onDelete, onEdit }) {
     onDelete(item.id);
   };
 
+  const handleEditClick = () => {
+    onEdit(item.id);
+  };
+
   return (
     <div className="ReviewListItem">
       <img className="ReviewListItem-img" src={item.imgUrl} alt={item.title} />
@@ -21,6 +25,7 @@ function ReviewListItem({ item, onDelete, onEdit }) {
         <Rating value={item.rating} />
         <p>{formatData(item.createdAt)}</p>
         <p>{item.content}</p>
+        <button onClick={handleEditClick}>수정</button>
         <button onClick={handleDeleteClick}>삭제</button>
       </div>
     </div>
@@ -28,20 +33,32 @@ function ReviewListItem({ item, onDelete, onEdit }) {
 }
 function ReviewList({ item, onDelete }) {
   const [editingId, setEditingId] = useState(null);
+
+  const handleCancel = () => setEditingId(null);
   return (
     <ul>
       {item.map((item) => {
         if (item.id === editingId) {
+          const { imgUrl, title, rating, content } = item;
+          const initialValues = { title, rating, content, imgFile: null };
           return (
             <li key={item.id}>
-              <ReviewForm />
+              <ReviewForm
+                initialValues={initialValues}
+                initialPreview={imgUrl}
+                onCancel={handleCancel}
+              />
             </li>
           );
         }
         //배열을 렌더링 할 때 key를 꼭 기억하기.
         return (
           <li key={item.id}>
-            <ReviewListItem item={item} onDelete={onDelete} />
+            <ReviewListItem
+              item={item}
+              onDelete={onDelete}
+              onEdit={setEditingId}
+            />
           </li>
         );
       })}
