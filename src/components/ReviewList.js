@@ -1,4 +1,6 @@
+import { useState } from "react";
 import Rating from "./Rating";
+import ReviewForm from "./ReviewForm";
 import "./ReviewList.css";
 
 function formatData(value) {
@@ -6,7 +8,7 @@ function formatData(value) {
   return `${date.getFullYear()}. ${date.getMonth() + 1}. ${date.getDate()}`;
 }
 
-function ReviewListItem({ item, onDelete }) {
+function ReviewListItem({ item, onDelete, onEdit }) {
   const handleDeleteClick = () => {
     onDelete(item.id);
   };
@@ -25,9 +27,17 @@ function ReviewListItem({ item, onDelete }) {
   );
 }
 function ReviewList({ item, onDelete }) {
+  const [editingId, setEditingId] = useState(null);
   return (
     <ul>
       {item.map((item) => {
+        if (item.id === editingId) {
+          return (
+            <li key={item.id}>
+              <ReviewForm />
+            </li>
+          );
+        }
         //배열을 렌더링 할 때 key를 꼭 기억하기.
         return (
           <li key={item.id}>
