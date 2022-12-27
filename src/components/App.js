@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { createReview, getReviews } from "../api";
+import { createReview, getReviews, updateReview } from "../api";
 import ReviewForm from "./ReviewForm";
 import ReviewList from "./ReviewList";
 
@@ -83,7 +83,7 @@ function App() {
         item={sortedItems}
         onDelete={handleDelete}
         onUpdate={updateReview}
-        onUpdateSuccess={onUpdateSuccess}
+        onUpdateSuccess={handleUpdateSuccess}
       />
       {hasNext && (
         <button disabled={isLoading} onClick={handleLoadMore}>

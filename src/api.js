@@ -14,7 +14,7 @@ export async function getReviews({
   return body;
 }
 
-export async function createReviews(formData) {
+export async function createReview(formData) {
   const response = await fetch(
     `${BASE_URL}/film-reviews, {
       method: 'POST',
@@ -28,7 +28,7 @@ export async function createReviews(formData) {
   return body;
 }
 
-export async function updateReviews(formData) {
+export async function updateReview(id, formData) {
   const response = await fetch(
     `${BASE_URL}/film-reviews/${id}, {
       method: 'PUT',
