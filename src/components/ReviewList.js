@@ -31,21 +31,31 @@ function ReviewListItem({ item, onDelete, onEdit }) {
     </div>
   );
 }
-function ReviewList({ item, onDelete }) {
+function ReviewList({ item, onUpdate, onUpdateSuccess, onDelete }) {
   const [editingId, setEditingId] = useState(null);
 
   const handleCancel = () => setEditingId(null);
+
   return (
     <ul>
       {item.map((item) => {
         if (item.id === editingId) {
-          const { imgUrl, title, rating, content } = item;
+          const { id, imgUrl, title, rating, content } = item;
           const initialValues = { title, rating, content, imgFile: null };
+
+          const handleSubmit = (formData) => onUpdate(id, formData);
+
+          const handleSubmitSuccess = (review) => {
+            onUpdateSuccess(review);
+            setEditingId(null);
+          };
           return (
             <li key={item.id}>
               <ReviewForm
                 initialValues={initialValues}
                 initialPreview={imgUrl}
+                onSubmit={handleSubmit}
+                onSubmitSuccess={handleSubmitSuccess}
                 onCancel={handleCancel}
               />
             </li>
