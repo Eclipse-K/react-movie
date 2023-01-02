@@ -67,7 +67,7 @@ function App() {
   }, [order, handleLoad]);
 
   return (
-    <LocaleContext.Provider>
+    <LocaleContext.Provider value={ko}>
       <div>
         <div>
           <button onClick={handleNewestClick}>최신순</button>
