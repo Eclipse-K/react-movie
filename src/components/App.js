@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { createReview, deleteReview, getReviews, updateReview } from "../api";
 import LocaleContext from "../Context/LocaleContext";
 import useAsync from "./Hooks/useAsync";
+import LocaleSelect from "./LocaleSelect";
 import ReviewForm from "./ReviewForm";
 import ReviewList from "./ReviewList";
 
@@ -70,6 +71,7 @@ function App() {
   return (
     <LocaleContext.Provider value={locale}>
       <div>
+        <LocaleSelect value={locale} onChange={setLocale} />
         <div>
           <button onClick={handleNewestClick}>최신순</button>
           <button onClick={handleBestClick}>베스트순</button>
