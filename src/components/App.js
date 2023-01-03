@@ -8,6 +8,7 @@ import ReviewList from "./ReviewList";
 const LIMIT = 6;
 
 function App() {
+  const [locale, setLocale] = useState("ko");
   const [order, setOrder] = useState("createdAt");
   const [offset, setOffset] = useState(0);
   const [hasNext, setHasNext] = useState(false);
@@ -67,7 +68,7 @@ function App() {
   }, [order, handleLoad]);
 
   return (
-    <LocaleContext.Provider value={ko}>
+    <LocaleContext.Provider value={locale}>
       <div>
         <div>
           <button onClick={handleNewestClick}>최신순</button>
