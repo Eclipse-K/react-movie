@@ -4,7 +4,7 @@ function LocaleSelect({ value, onChange }) {
   const locale = useLocale();
   const setLocale = useSetLocale();
 
-  const handleChange = (e) => onChange(e.target.value);
+  const handleChange = (e) => setLocale(e.target.value);
 
   return (
     <select value={locale} onChange={handleChange}>
