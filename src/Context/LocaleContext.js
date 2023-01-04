@@ -12,7 +12,7 @@ export function LocaleProvider({ defaultValue = "ko", children }) {
   );
 }
 
-function useLocale() {
+export function useLocale() {
   const context = useContext(LocaleContext);
 
   if (!context) {
@@ -24,7 +24,7 @@ function useLocale() {
   return locale;
 }
 
-function useSetLocale() {
+export function useSetLocale() {
   const context = useContext(LocaleContext);
 
   if (!context) {

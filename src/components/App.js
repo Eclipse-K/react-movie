@@ -70,7 +70,7 @@ function App() {
   return (
     <LocaleProvider defaultValue="ko">
       <div>
-        <LocaleSelect value={locale} onChange={setLocale} />
+        <LocaleSelect />
         <div>
           <button onClick={handleNewestClick}>최신순</button>
           <button onClick={handleBestClick}>베스트순</button>
