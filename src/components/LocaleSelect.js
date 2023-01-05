@@ -1,6 +1,6 @@
 import { useLocale, useSetLocale } from "../Context/LocaleContext";
 
-function LocaleSelect({ value, onChange }) {
+function LocaleSelect() {
   const locale = useLocale();
   const setLocale = useSetLocale();
 
