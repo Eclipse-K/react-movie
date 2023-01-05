@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useLocale } from "../Context/LocaleContext";
 import useTranslate from "./Hooks/useTranslate";
 import Rating from "./Rating";
 import ReviewForm from "./ReviewForm";
@@ -11,7 +10,6 @@ function formatData(value) {
 }
 
 function ReviewListItem({ item, onDelete, onEdit }) {
-  const locale = useLocale();
   const t = useTranslate();
 
   const handleDeleteClick = () => {
@@ -30,7 +28,6 @@ function ReviewListItem({ item, onDelete, onEdit }) {
         <Rating value={item.rating} />
         <p>{formatData(item.createdAt)}</p>
         <p>{item.content}</p>
-        <p>현재언어: {locale}</p>
         <button onClick={handleEditClick}>{t("edit button")}</button>
         <button onClick={handleDeleteClick}>{t("delete button")}</button>
       </div>
