@@ -23,7 +23,7 @@ function ReviewListItem({ item, onDelete, onEdit }) {
   return (
     <div className="ReviewListItem">
       <img className="ReviewListItem-img" src={item.imgUrl} alt={item.title} />
-      <div>
+      <div className="ReviewListItem-rows">
         <h1>{item.title}</h1>
         <Rating value={item.rating} />
         <p>{formatData(item.createdAt)}</p>
