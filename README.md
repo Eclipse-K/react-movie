@@ -1,5 +1,5 @@
 # 영화소개
 
-연습용입니다.(연습)
+영화의 정보를 소개하는 사이트
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+**언어 : React**
