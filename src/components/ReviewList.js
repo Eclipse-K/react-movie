@@ -24,12 +24,24 @@ function ReviewListItem({ item, onDelete, onEdit }) {
     <div className="ReviewListItem">
       <img className="ReviewListItem-img" src={item.imgUrl} alt={item.title} />
       <div className="ReviewListItem-rows">
-        <h1>{item.title}</h1>
-        <Rating value={item.rating} />
-        <p>{formatData(item.createdAt)}</p>
-        <p>{item.content}</p>
-        <button onClick={handleEditClick}>{t("edit button")}</button>
-        <button onClick={handleDeleteClick}>{t("delete button")}</button>
+        <h1 className="ReviewListItem-title">{item.title}</h1>
+        <Rating className="ReviewListItem-rating" value={item.rating} />
+        <p className="ReviewListItem-data">{formatData(item.createdAt)}</p>
+        <p className="ReviewListItem-content">{item.content}</p>
+        <div className="ReviewListItem-buttons">
+          <button
+            className="ReviewListItem-edit-button"
+            onClick={handleEditClick}
+          >
+            {t("edit button")}
+          </button>
+          <button
+            className="ReviewListItem-delete-button"
+            onClick={handleDeleteClick}
+          >
+            {t("delete button")}
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -40,7 +52,7 @@ function ReviewList({ item, onUpdate, onUpdateSuccess, onDelete }) {
   const handleCancel = () => setEditingId(null);
 
   return (
-    <ul>
+    <ul className="ReviewList">
       {item.map((item) => {
         if (item.id === editingId) {
           const { id, imgUrl, title, rating, content } = item;
