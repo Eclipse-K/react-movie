@@ -39,3 +39,31 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
+.ReviewListItem-title {
+  font-weight: 400;
+  font-size: 20px;
+}
+
+.ReviewListItem-data {
+  color: #bdbdbd;
+  font-size: 14px;
+  letter-spacing: -0.25px;
+}
+
+.ReviewListItem-content {
+  color: #545357;
+  font-size: 16px;
+  line-height: 1.63;
+  letter-spacing: -0.2px;
+}
+
+.ReviewListItem-edit-button,
+.ReviewListItem-delete-button {
+  padding: 0;
+  border: none;
+  color: #000;
+  font-size: 16px;
+  letter-spacing: -0.28px;
+  background-color: transparent;
+}
