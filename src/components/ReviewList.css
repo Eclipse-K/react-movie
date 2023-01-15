@@ -60,10 +60,12 @@
 
 .ReviewListItem-edit-button,
 .ReviewListItem-delete-button {
-  padding: 0;
-  border: none;
+  margin-left: 5px;
+  padding: 5px;
+  border: 1px grid;
+  border-radius: 5px;
   color: #000;
-  font-size: 16px;
+  font-size: 15px;
   letter-spacing: -0.28px;
   background-color: transparent;
 }
