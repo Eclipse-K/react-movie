@@ -13,6 +13,7 @@ const INITIAL_VALUES = {
 };
 
 function ReviewForm({
+  className = "",
   initialValues = INITIAL_VALUES,
   initialPreview,
   onCancel,
