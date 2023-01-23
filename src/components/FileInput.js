@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-function FileInput({ name, value, initialPreview, onChange }) {
+function FileInput({ className = "", name, value, initialPreview, onChange }) {
   const [preview, setPreview] = useState(initialPreview);
   const inputRef = useRef();
 
@@ -29,15 +29,25 @@ function FileInput({ name, value, initialPreview, onChange }) {
   }, [value, initialPreview]);
 
   return (
-    <div>
-      <img src={preview} alt="이미지 미리보기" />
+    <div className={`FileInput ${className}`}>
+      <img
+        className={`FileInput-preview ${preview ? "selected" : ""}`}
+        src={preview || placeholderImg}
+        alt="이미지 미리보기"
+      />
       <input
+        className="FileInput-hidden-overlay"
         type="file"
         accept="image/png, image/jpeg"
         onChange={handleChange}
         ref={inputRef}
       />
-      ;{value && <button onClick={handleClearClick}>X</button>}
+      ;
+      {value && (
+        <button className="FileInput-clear-button" onClick={handleClearClick}>
+          <img src={resetImg} alt="선택해제" />
+        </button>
+      )}
     </div>
   );
 } //FileInput은 반드시 비제어 컴포넌트로
