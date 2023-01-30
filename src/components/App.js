@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
 import { createReview, deleteReview, getReviews, updateReview } from "../api";
-import { LocaleProvider } from "../Context/LocaleContext";
 import useAsync from "./Hooks/useAsync";
 import LocaleSelect from "./LocaleSelect";
 import ReviewForm from "./ReviewForm";
@@ -109,7 +108,10 @@ function App() {
           >
             {t("newest")}
           </AppSortButton>
-          <AppSortButton selected={order === rating} onClick={handleBestClick}>
+          <AppSortButton
+            selected={order === "rating"}
+            onClick={handleBestClick}
+          >
             {t("best")}
           </AppSortButton>
         </div>
