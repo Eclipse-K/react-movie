@@ -7,6 +7,7 @@ import ReviewList from "./ReviewList";
 import logoImg from "../assets/logo.png";
 import ticketImg from "../assets/ticket.png";
 import useTranslate from "./Hooks/useTranslate";
+import "./App.css";
 
 const LIMIT = 6;
 
